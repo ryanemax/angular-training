@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
 import { MemberEdit } from '../member-edit/member-edit'
-
-
-import { Http, Headers } from '@angular/http'
-import 'rxjs/add/operator/toPromise'
+import { MemberListPopover } from './list-popover';
 
 import { UserService } from "../../providers/user"
 
@@ -25,12 +24,35 @@ export class MemberList {
   constructor(public navCtrl: NavController, 
   public navParams: NavParams,
   public actionCtrl:ActionSheetController,
-  private http:Http,
+  public popCtrl:PopoverController,
+  public modalCtrl:ModalController,
   private userServ:UserService) {
     this.userServ.findClasses("Member").then(data=>{
         if(data&&data.json().results){
           this.members = data.json().results
         }
+    })
+
+    this.allPromise()
+
+
+  }
+
+  allPromise(){
+    let p1 = new Promise((resolve)=>{
+      setTimeout(data=>{
+        resolve("Hello, I'm Promise 1")
+      },4000)
+    })
+
+    let p2 = new Promise((resolve)=>{
+      setTimeout(data=>{
+        resolve("Hello, I'm Promise 2")
+      },2000)
+    })
+
+    return Promise.race([p1,p2]).then(result=>{
+      console.log(result)
     })
   }
 
@@ -44,10 +66,6 @@ export class MemberList {
   }
 
 
-  printMember(member){
-    console.log(member)
-    this.currentMember = member
-  }
   setSkills(skills){
     console.log(skills)
     this.skills = skills
@@ -59,6 +77,36 @@ export class MemberList {
 
     })
     this.members = tempList
+  }
+    presentUserEditModal(member?){
+      let opts:any = {}
+      if(member){
+        opts.member = member
+      }
+          let userAdd = this.modalCtrl.create(this.memberEditPage,opts)
+          userAdd.onDidDismiss(data=>{
+            if(data){
+              this.members.push(data)
+            }
+          })
+          userAdd.present()
+    }
+  presentPopover(myEvent){
+    let popover = this.popCtrl.create(MemberListPopover);
+    popover.onDidDismiss(data=>{
+      console.log(data)
+      if(data){
+        if(data == "user") {
+          this.presentUserEditModal()
+        }
+        if(data == "top") {
+          return
+        }
+      }
+    })
+    popover.present({
+      ev: myEvent
+    });
   }
   presentConfirm(){
     let opts = {

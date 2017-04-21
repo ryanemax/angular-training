@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>学员</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="presentPopover($event)">
+        <ion-icon name="more" style="font-size:2.5rem!important;"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +17,7 @@
   </ion-refresher-content>
 </ion-refresher>
 
-<member-detail *ngFor="let member of members" [member]="member" (getMemberData)="printMember($event)"></member-detail>
+<member-detail *ngFor="let member of members" [member]="member" (getMemberData)="presentUserEditModal($event)"></member-detail>
 
 <button ion-button color="primary" (click)="sortList()">
   排序

@@ -1,17 +1,47 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>member-edit</ion-title>
+    <ion-title>{{currentMember?"编辑学员":"新增学员"}}</ion-title>
     <ion-buttons end>
       <button ion-button (click)="returnToHistory()" style="font-size: 2.5rem!important;">
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+<ion-item>
+  <ion-label floating>姓名</ion-label>
+  <ion-input [(ngModel)]="object.name"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>github</ion-label>
+  <ion-input [(ngModel)]="object.github"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>性别</ion-label>
+  <ion-input [(ngModel)]="object.sex"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>习题1分数</ion-label>
+  <ion-input [(ngModel)]="object.exam1"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>习题2分数</ion-label>
+  <ion-input [(ngModel)]="object.exam2"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>习题3分数</ion-label>
+  <ion-input [(ngModel)]="object.exam3"></ion-input>
+</ion-item>
+
+<button block outline ion-button color="secondary" (click)="save()">保存</button>
 <button block outline ion-button color="primary" (click)="returnToHistory()">返回</button>
 </ion-content>
