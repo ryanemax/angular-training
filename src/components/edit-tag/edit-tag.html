@@ -1,0 +1,13 @@
+<ion-item>
+  <ion-label>{{title}}</ion-label>
+  <ion-input type="text" value="" [(ngModel)]="tag"></ion-input>
+  <button ion-button (click)="addTag()" [disabled]="isAbled" item-right>添加新{{title}}</button>
+</ion-item>
+<ion-item>
+  <ion-chip #chip1 *ngFor="let it of tags;let i = index;">
+    <ion-label class="select-tag">{{it}}</ion-label>
+    <button ion-button small color="danger" (click)="delete(chip1,i)">
+      <ion-icon small name="close-circle"></ion-icon>
+    </button>
+  </ion-chip>
+</ion-item>

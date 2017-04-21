@@ -1,0 +1,7 @@
+<ion-item>
+  <ion-label>{{title}}</ion-label>
+  <ion-chip *ngFor="let key of checkIds">
+    <ion-label>{{_options[key]}}</ion-label>
+    <ion-checkbox [(ngModel)]="option[key]"></ion-checkbox>
+  </ion-chip>
+</ion-item>

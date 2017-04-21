@@ -1,0 +1,63 @@
+<ion-header [ngStyle]="{'opacity':headerOpacity}">
+  <ion-navbar>
+    <ion-title>我的</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content (ionScroll)="doWhenScroll($event)" style="background-color: #f8f8f8;">
+  <div class="user-header">
+  <ion-item no-lines>
+    <ion-avatar item-left>
+      <img src="{{currentUser&&currentUser.get('avatar')?(currentUser.get('avatar') | showImgPipe)+'?imageView2/0/w/100':'assets/img/avatar.jpg'}}">
+    </ion-avatar>
+    <button ion-button color="secondary" item-right>立即登录</button>
+    <!--<button ion-button color="secondary" [navPush]="infoPage">修改资料</button>-->
+  </ion-item>
+  </div>
+
+  <ion-list no-border>
+    <ion-item [navPush]="messagePage">
+      <ion-icon color="primary" name='mail' item-left></ion-icon>
+      消息中心
+      <ion-badge item-right>3</ion-badge>
+      <ion-note item-right>新消息</ion-note>
+      <ion-icon item-right name='ios-arrow-forward'></ion-icon>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-icon color="primary" name='home' item-left></ion-icon>
+      我的课程
+      <ion-icon name='ios-arrow-forward' item-right></ion-icon>
+    </ion-item> -->
+    <ion-item [navPush]="collectPage">
+      <ion-icon color="primary" name='bookmarks' item-left></ion-icon>
+      我的收藏
+      <ion-icon name='ios-arrow-forward' item-right></ion-icon>
+    </ion-item>
+    <ion-item [navPush]="downloadPage">
+      <ion-icon color="primary" name='cloud-download' item-left></ion-icon>
+      我的下载
+      <ion-icon name='ios-arrow-forward' item-right></ion-icon>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-icon color="primary" name='chatbubbles' item-left></ion-icon>
+      我的问答
+      <ion-icon name='ios-arrow-forward' item-right></ion-icon>
+    </ion-item> -->
+  </ion-list>
+  <ion-list>
+    <ion-item no-lines [navPush]="certifyPage">
+      <ion-icon color="primary" name="card" item-left></ion-icon>
+      成为认证用户
+      <ion-icon name='ios-arrow-forward' item-right></ion-icon>
+    </ion-item>
+    <ion-item no-lines [navPush]="settingPage">
+      <ion-icon color="primary" name='cog' item-left></ion-icon>
+      系统设置
+      <ion-icon item-right name='ios-arrow-forward'></ion-icon>
+    </ion-item>
+    <ion-item no-lines (click)="logout()">
+      <ion-icon color="primary" name='log-out' item-left></ion-icon>
+      注销账号
+      <ion-icon item-right name='ios-arrow-forward'></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

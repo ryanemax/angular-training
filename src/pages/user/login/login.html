@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>登录</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list text-center style="width:80%;margin-left:10%;margin-top:5%;">
+  <ion-list-header text-center no-lines>
+  <!-- <img width="187px" src="assets/icon/logo300.png" alt="Anas IT Inc." /> -->
+  <ion-img style="width: 77px; height: 77px; border-radius: 50%;" src="assets/img/avatar.png"></ion-img>
+  </ion-list-header>
+  <ion-item>
+    <ion-input placeholder="用户名/手机号" type="text" value="" [(ngModel)]="user.username" value="{{localUser.username}}"></ion-input>
+   </ion-item>
+   <ion-item>
+   <ion-input placeholder="密码" type="password" [(ngModel)]="user.password" value="{{localUser.password}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label> 记住密码？</ion-label>
+    <ion-checkbox [(ngModel)]="checkit" (click)="change()" checked="{{checkit}}"></ion-checkbox>
+  </ion-item>
+
+  <button ion-button block style="border-radius:25px;margin-top:45px;height: 2.4em;" (click)="login()">登录</button>
+  <button ion-button block outline style="border-radius:25px;margin-top:25px;height: 2.4em;" [navPush]="signingUpPage">新用户注册</button>
+  <!-- <button full ion-button outline (click)="loginoauth('dingtalk')">钉钉登录</button>
+  <button full ion-button outline color="secondary" (click)="loginoauth('wechat')">微信登录</button>
+  <button full ion-button outline color="light" (click)="loginoauth('github')">Github登录</button>
+  <button full ion-button outline color="light" (click)="loginoauth('more')">第三方登录</button> -->
+
+  </ion-list>
+
+</ion-content>

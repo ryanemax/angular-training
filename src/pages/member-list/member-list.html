@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>学员</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-refresher (ionRefresh)="refreshData($event)">
+  <ion-refresher-content>
+    正在加载，请稍后...
+  </ion-refresher-content>
+</ion-refresher>
+
+<member-detail *ngFor="let member of members" [member]="member" (getMemberData)="printMember($event)"></member-detail>
+
+<button ion-button color="primary" (click)="sortList()">
+  排序
+</button>
+<button ion-button color="primary" (click)="presentConfirm()">
+  确认操作
+</button>
+</ion-content>
