@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { MemberEdit } from '../member-edit/member-edit'
@@ -26,34 +27,44 @@ export class MemberList {
   public actionCtrl:ActionSheetController,
   public popCtrl:PopoverController,
   public modalCtrl:ModalController,
+  public alertCtrl:AlertController,
   private userServ:UserService) {
     this.userServ.findClasses("Member").then(data=>{
         if(data&&data.json().results){
           this.members = data.json().results
         }
     })
-
-    this.allPromise()
-
-
   }
-
-  allPromise(){
-    let p1 = new Promise((resolve)=>{
-      setTimeout(data=>{
-        resolve("Hello, I'm Promise 1")
-      },4000)
-    })
-
-    let p2 = new Promise((resolve)=>{
-      setTimeout(data=>{
-        resolve("Hello, I'm Promise 2")
-      },2000)
-    })
-
-    return Promise.race([p1,p2]).then(result=>{
-      console.log(result)
-    })
+  deleteMember(member){
+    let opts = {
+      title: '删除学员',
+      message: `请问您要删除当前学员${member.name}吗?`,
+      buttons: [
+        {
+          text: '取消',
+          handler: () => {
+            console.log('Disagree clicked');
+            return
+          }
+        },
+        {
+          text: '确认',
+          handler: () => {
+                if(member&&member.objectId){
+                  this.userServ.deleteClassById("Member",member.objectId).then(data=>{
+                    this.members.filter((item,index)=>{
+                      if(item.objectId == member.objectId){
+                        this.members.splice(index,1)
+                      }
+                      })
+                  })
+                }
+          }
+        }
+      ]
+    }
+    let deleteConfirm = this.alertCtrl.create(opts)
+    deleteConfirm.present()
   }
 
   refreshData(refresher){

@@ -17,7 +17,7 @@
   </ion-refresher-content>
 </ion-refresher>
 
-<member-detail *ngFor="let member of members" [member]="member" (getMemberData)="presentUserEditModal($event)"></member-detail>
+<member-detail *ngFor="let member of members" [member]="member" (deleteMember)="deleteMember($event)" (getMemberData)="presentUserEditModal($event)"></member-detail>
 
 <button ion-button color="primary" (click)="sortList()">
   排序

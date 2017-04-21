@@ -20,7 +20,21 @@ export class UserService {
     }).toPromise()
   }
 
-  findClasses(className){
+  updateClass(className,objectId,object){
+    let url = `${this.hostURL}classes/${className}/${objectId}`
+    return this.http.put(url,object,{
+      headers:this.authHeaders
+    }).toPromise()
+  }
+
+  deleteClassById(className,objectId){
+    let url = `${this.hostURL}classes/${className}/${objectId}`
+    return this.http.delete(url,{
+      headers:this.authHeaders
+    }).toPromise()
+  }
+
+  findClasses(className,opts?){
     let url = this.hostURL+ "classes/"+className
     return this.http.get(url,{
       headers:this.authHeaders
