@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { AlertController} from 'ionic-angular';
 
 @Component({
-  selector: 'anas-edit-check',
+  selector: 'edit-check',
   templateUrl: 'edit-check.html'
 })
 export class EditCheck {

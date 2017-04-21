@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AlertController} from 'ionic-angular';
 
 @Component({
-  selector: 'anas-edit-radio',
+  selector: 'edit-radio',
   templateUrl: 'edit-radio.html'
 })
 export class EditRadio {
