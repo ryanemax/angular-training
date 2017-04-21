@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {Http} from "@angular/http";
 import { NavController } from 'ionic-angular';
 // import { Cloud } from '../../../providers/cloud';
-import { Storage } from '@ionic/storage';
 import { SigningUpPage} from'../signing-up/signing-up';
 
 @Component({

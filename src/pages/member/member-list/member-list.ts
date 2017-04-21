@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
@@ -7,9 +7,8 @@ import { PopoverController } from 'ionic-angular';
 import { MemberEdit } from '../member-edit/member-edit'
 import { MemberListPopover } from './list-popover';
 
-import { UserService } from "../../providers/user"
+import { UserService } from "../../../providers/user"
 
-@IonicPage()
 @Component({
   selector: 'page-member-list',
   templateUrl: 'member-list.html'

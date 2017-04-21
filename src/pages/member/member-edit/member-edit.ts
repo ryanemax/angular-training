@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
-import {UserService} from "../../providers/user"
-@IonicPage()
+import { NavController, NavParams,ViewController } from 'ionic-angular';
+import {UserService} from "../../../providers/user"
+
 @Component({
   selector: 'page-member-edit',
   templateUrl: 'member-edit.html',
