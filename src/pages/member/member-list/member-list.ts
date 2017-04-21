@@ -19,8 +19,8 @@ export class MemberList {
   skills:Array<any>;
   startTime:any;
   currentMember:any;
-
-
+  searchInput:string = "";
+  membersShow:Array<any>
   constructor(public navCtrl: NavController, 
   public navParams: NavParams,
   public actionCtrl:ActionSheetController,
@@ -33,6 +33,20 @@ export class MemberList {
           this.members = data.json().results
         }
     })
+  }
+  onInput(ev){
+    let val = this.searchInput
+    let show = []
+    console.log(val)
+    this.members.forEach(item => {
+      let itemstr = JSON.stringify(item)
+      if (itemstr.includes(val)) { show.push(item) }
+    })
+    this.membersShow = show
+    if (val == "") {
+      this.membersShow = []
+    }
+    console.log(this.membersShow)
   }
   deleteMember(member){
     let opts = {

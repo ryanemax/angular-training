@@ -9,14 +9,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
 <ion-refresher (ionRefresh)="refreshData($event)">
   <ion-refresher-content>
     正在加载，请稍后...
   </ion-refresher-content>
 </ion-refresher>
 
-<member-detail *ngFor="let member of members" [member]="member" (deleteMember)="deleteMember($event)" (getMemberData)="presentUserEditModal($event)"></member-detail>
+<ion-searchbar
+  [(ngModel)]="searchInput"
+  [showCancelButton]="ture"
+  (ionInput)="onInput($event)"
+  (ionCancel)="onCancel($event)">
+</ion-searchbar>
 
+<member-detail *ngFor="let member of membersShow" [member]="member" (deleteMember)="deleteMember($event)" (getMemberData)="presentUserEditModal($event)"></member-detail>
+
+<member-detail *ngFor="let member of members" [member]="member" (deleteMember)="deleteMember($event)" (getMemberData)="presentUserEditModal($event)"></member-detail>
 </ion-content>
