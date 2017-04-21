@@ -10,6 +10,7 @@ export class MemberEdit {
   startTime:any
   object:any = {
     name:"",
+    avatar:"",
     github:"",
     sex:"",
     age:"",
@@ -24,6 +25,7 @@ export class MemberEdit {
     if(this.currentMember){
       console.log(this.currentMember)
       this.object.name = this.currentMember.name
+      this.object.avatar = this.currentMember.avatar
       this.object.github = this.currentMember.github
       this.object.sex = this.currentMember.sex
       this.object.age = this.currentMember.age

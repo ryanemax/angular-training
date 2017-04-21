@@ -1,33 +1,23 @@
 <ion-card>
   <ion-item>
-    <ion-avatar item-left>
+    <ion-thumbnail item-left>
       <img src="{{member.avatar?member.avatar:'assets/img/avatar.jpg'}}">
-    </ion-avatar>
-    姓名：{{member.name}}, 年龄：{{member.age}}
+    </ion-thumbnail>
+    <ion-label item-right>{{member.name}}, {{member.sex}}</ion-label>
   </ion-item>
 
    <ion-row>
     <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>0 Grades</div>
+      <button ion-button icon-left clear small (click)="chooseMember()">
+        <ion-icon name="create"></ion-icon>
+        <div>编辑</div>
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>0 Exam</div>
+      <button color="danger" ion-button icon-left clear small (click)="delete()">
+        <ion-icon name="close"></ion-icon>
+        <div>删除</div>
       </button>
-    </ion-col>
-    <ion-col text-center>
-      <!--<ion-note *ngIf="member.isHere" color="secondary">
-        已签到
-      </ion-note>
-       <ion-note *ngIf="!member.isHere" color="danger">
-        未签到
-      </ion-note>-->
-      <button ion-button color="primary" outline clear (click)="chooseMember()">编辑</button>
-      <button ion-button color="danger" outline clear (click)="delete()">删除</button>
     </ion-col>
   </ion-row>
 </ion-card>
