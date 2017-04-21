@@ -13,6 +13,9 @@ export class MemberDetailComponent {
   chooseMember(){
     this.getMemberData.emit(this.member)
   }
+  gotoGithub(github){
+    window.open("https://github.com/"+github,"_blank")
+  }
   delete(){
     this.deleteMember.emit(this.member)
   }

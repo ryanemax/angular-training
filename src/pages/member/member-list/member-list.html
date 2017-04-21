@@ -19,10 +19,4 @@
 
 <member-detail *ngFor="let member of members" [member]="member" (deleteMember)="deleteMember($event)" (getMemberData)="presentUserEditModal($event)"></member-detail>
 
-<button ion-button color="primary" (click)="sortList()">
-  排序
-</button>
-<button ion-button color="primary" (click)="presentConfirm()">
-  确认操作
-</button>
 </ion-content>

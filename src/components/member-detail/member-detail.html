@@ -1,20 +1,26 @@
 <ion-card>
   <ion-item>
-    <ion-thumbnail item-left>
+    <ion-avatar item-left>
       <img src="{{member.avatar?member.avatar:'assets/img/avatar.jpg'}}">
-    </ion-thumbnail>
+    </ion-avatar>
     <ion-label item-right>{{member.name}}, {{member.sex}}</ion-label>
   </ion-item>
 
    <ion-row>
-    <ion-col>
-      <button ion-button icon-left clear small (click)="chooseMember()">
+     <ion-col col-6>
+      <button ion-button icon-left clear (click)="gotoGithub(member.github)">
+        <ion-icon name="md-git-branch"></ion-icon>
+        <div>{{member.github}}</div>
+      </button>
+    </ion-col>
+    <ion-col col-3>
+      <button ion-button icon-left clear (click)="chooseMember()">
         <ion-icon name="create"></ion-icon>
         <div>编辑</div>
       </button>
     </ion-col>
-    <ion-col>
-      <button color="danger" ion-button icon-left clear small (click)="delete()">
+    <ion-col col-3>
+      <button color="danger" ion-button icon-left clear (click)="delete()">
         <ion-icon name="close"></ion-icon>
         <div>删除</div>
       </button>
