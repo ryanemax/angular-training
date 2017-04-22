@@ -14,6 +14,7 @@ import { UserService } from "../../../providers/user"
   templateUrl: 'member-list.html'
 })
 export class MemberList {
+  titile:string="学员"
   members:Array<any>
   memberEditPage:any = MemberEdit
   skills:Array<any>;

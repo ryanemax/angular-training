@@ -20,6 +20,7 @@ export class EditRadio {
     return this._option
   }
   set option(v) {
+    console.log("set option:",v)
     this.optionChange.emit(v)
     this._option = v
   }

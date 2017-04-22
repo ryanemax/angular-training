@@ -1,11 +1,12 @@
 {
-  "name": "ionic-app-base",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "training-manage",
+  "author": "Ryane Max",
+  "homepage": "https://ryanemax.github.io/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
+    "buildandroid": "ionic-app-scripts build android --prod --release",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "serve": "ionic-app-scripts serve"
@@ -20,6 +21,7 @@
     "@angular/platform-browser": "4.0.0",
     "@angular/platform-browser-dynamic": "4.0.0",
     "@ionic-native/core": "3.4.2",
+    "@ionic-native/diagnostic": "^3.5.0",
     "@ionic-native/splash-screen": "3.4.2",
     "@ionic-native/status-bar": "3.4.2",
     "@ionic/storage": "2.0.1",

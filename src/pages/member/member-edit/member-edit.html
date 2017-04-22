@@ -22,7 +22,21 @@
   <ion-input [(ngModel)]="object.github"></ion-input>
 </ion-item>
 
-<edit-radio [title]="'性别'" [option]="object.sex" [options]="['男','女']"></edit-radio>
+<ion-item>
+    <ion-label>性别</ion-label>
+    <ion-select [(ngModel)]="object.sex">
+      <ion-option value="男">男</ion-option>
+      <ion-option value="女">女</ion-option>
+    </ion-select>
+</ion-item>
+
+<ion-item>
+    <ion-label>地点</ion-label>
+    <ion-select [(ngModel)]="object.address">
+      <ion-option value="大连">大连</ion-option>
+      <ion-option value="上海">上海</ion-option>
+    </ion-select>
+</ion-item>
 
 <ion-item>
   <ion-label floating>头像</ion-label>

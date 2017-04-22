@@ -7,10 +7,11 @@ import {UserService} from "../../../providers/user"
   templateUrl: 'member-edit.html',
 })
 export class MemberEdit {
-  startTime:any
+  startTime:Date
   object:any = {
     name:"",
     avatar:"",
+    address:"",
     github:"",
     sex:"",
     age:"",
@@ -24,20 +25,19 @@ export class MemberEdit {
     this.currentMember = this.navParams.data.member
     if(this.currentMember){
       console.log(this.currentMember)
-      this.object.name = this.currentMember.name
-      this.object.avatar = this.currentMember.avatar
-      this.object.github = this.currentMember.github
-      this.object.sex = this.currentMember.sex
-      this.object.age = this.currentMember.age
-      this.object.exam1 = this.currentMember.exam1
-      this.object.exam2 = this.currentMember.exam2
-      this.object.exam3 = this.currentMember.exam3
+
+      Object.keys(this.currentMember).forEach(key=>{
+        if(key=="createdAt") return
+        if(key=="updatedAt") return
+        this.object[key] = this.currentMember[key]
+      })
     }
   }
 
 save(){
   if(!this.object.name||!this.object.github){
     console.log("您的信息不完整，请重新填写")
+    return
   }
 
   if(this.currentMember){
@@ -51,9 +51,10 @@ save(){
   })
   }else{
   this.userServ.saveClass("Member",this.object).then(data=>{
-    console.log(data)
-    this.object.objectId = data.json().objectId
-    this.object.createdAt = data.json().createAt
+    let res:any = data
+    console.log(res)
+    this.object.objectId = res.json().objectId
+    this.object.createdAt = res.json().createAt
     this.viewCtrl.dismiss(this.object)
   }).catch(err=>{
     console.log(err)
@@ -68,7 +69,9 @@ returnToHistory(){
     console.log('ionViewDidLoad MemberEdit');
   }
 ngOnDestroy(){
-  console.log("您访问该页面的时间：",this.startTime)
+  // let leaveTime = new Date()
+  // leaveTime.toDateString()
+  console.log("您在当前页面停留时间：", this.startTime.toDateString())
 }
 
 }

@@ -21,7 +21,7 @@ $ npm run serve
     - [Ionic 官方文档](http://ionicframework.com/docs/)
     - [《JavaScript Promise迷你书（中文版）》](http://liubin.org/promises-book/#introduction)
 - 基础语法
-    - [HTML5+CS S参考文档](http://www.runoob.com/)
+    - [HTML5+CSS3参考文档](http://www.runoob.com/)
     - [《ECMAScript 6 入门》](http://es6.ruanyifeng.com/)
     - [Typescirt 官方文档](https://www.typescriptlang.org/docs/tutorial.html)
 - Demo推荐

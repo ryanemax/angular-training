@@ -3,6 +3,7 @@ import {Http} from "@angular/http";
 import { NavController } from 'ionic-angular';
 // import { Cloud } from '../../../providers/cloud';
 import { SigningUpPage} from'../signing-up/signing-up';
+import { UserService } from "../../../providers/user"
 
 @Component({
   selector:'user-login',
@@ -17,7 +18,7 @@ export class LoginPage {
   profiles:any;
   departments:any;
   signingUpPage: any = SigningUpPage;
-  constructor(private nav: NavController,private http:Http) {
+  constructor(private nav: NavController,private http:Http,public userServ:UserService) {
 
     this.loginin=false;
     
@@ -33,6 +34,7 @@ export class LoginPage {
   login()
   {
     // this.cloud.login(this.user);
+    this.userServ.login(this.user)
   }
 
   loginoauth(type)

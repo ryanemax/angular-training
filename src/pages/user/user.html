@@ -1,5 +1,5 @@
 <ion-header [ngStyle]="{'opacity':headerOpacity}">
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>我的</ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,7 +9,7 @@
     <ion-avatar item-left>
       <img src="{{currentUser&&currentUser.get('avatar')?(currentUser.get('avatar') | showImgPipe)+'?imageView2/0/w/100':'assets/img/avatar.jpg'}}">
     </ion-avatar>
-    <button ion-button color="secondary" item-right>立即登录</button>
+    <button ion-button color="secondary" item-right [navPush]="loginPage">立即登录</button>
     <!--<button ion-button color="secondary" [navPush]="infoPage">修改资料</button>-->
   </ion-item>
   </div>
@@ -57,6 +57,11 @@
     <ion-item no-lines (click)="logout()">
       <ion-icon color="primary" name='log-out' item-left></ion-icon>
       注销账号
+      <ion-icon item-right name='ios-arrow-forward'></ion-icon>
+    </ion-item>
+    <ion-item no-lines hideWhen="ios" (click)="update()">
+      <ion-icon color="primary" name='log-out' item-left></ion-icon>
+      检查更新
       <ion-icon item-right name='ios-arrow-forward'></ion-icon>
     </ion-item>
   </ion-list>
