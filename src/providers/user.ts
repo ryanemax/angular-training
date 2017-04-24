@@ -60,6 +60,22 @@ export class UserService {
     })
   }
 
+  findClassesRxJS(className,opts?){
+    let url = this.hostURL+ "classes/"+className
+    return this.http.get(url,{
+      headers:this.authHeaders
+    })
+    // .catch(err=>{
+    //   console.log(err)
+    //   let opts = {
+    //     message:err.json().error,
+    //     duration: 2000
+    //   }
+    //   let errNotify = this.toastCtrl.create(opts)
+    //   errNotify.present()
+    // })
+  }
+
   findClasses(className,opts?){
     let url = this.hostURL+ "classes/"+className
     return this.http.get(url,{
