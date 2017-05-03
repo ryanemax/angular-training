@@ -8,7 +8,7 @@ import { MyApp } from './app.component';
 // Native Providers
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Diagnostic } from "@ionic-native/diagnostic"
+// import { Diagnostic } from "@ionic-native/diagnostic"
 
 // Shared Module
 import { PipesModule } from '../pipes/pipes.module'
@@ -48,7 +48,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Diagnostic
+    // Diagnostic
   ]
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { NavController, NavParams, AlertController,Platform } from 'ionic-angular';
-import { Diagnostic } from "@ionic-native/diagnostic"
+// import { Diagnostic } from "@ionic-native/diagnostic"
 
 // import { Content, ViewChild  } from 'ionic-angular';
 // import { Cloud } from '../../providers/cloud';
@@ -30,7 +30,7 @@ export class UserPage {
   currentUser: any
 
   constructor(private nav: NavController, public navParams: NavParams, public alertCtrl: AlertController,
-  public diagnostic:Diagnostic,
+  // public diagnostic:Diagnostic,
   public platform:Platform) {
     // this.currentUser = Parse.User.current()
     // this.cloud.notifyCheck()
